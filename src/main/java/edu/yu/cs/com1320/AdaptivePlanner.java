@@ -10,7 +10,7 @@ public class AdaptivePlanner {
     private final Map<String, Task> tasks;
     private List<Map<Task, Double>> schedule;
 
-    public AdaptivePlanner(int... hours) {
+    public AdaptivePlanner(int... hours) { // WEEK STARTS ON MONDAY
         if (hours == null) throw new IllegalArgumentException("Hours cannot be null");
         if (hours.length != 7) throw new IllegalArgumentException("hours.length must be 7 for each day of week sun-sat");
 

@@ -146,7 +146,7 @@ public class Run {
         print("Today's schedule:");
         print("Task Name", "Due Date", "Hours to work");
         Map<Task, Double> work = planner.getTodayWorkSchedule();
-        for (Task task : planner.getTasks()) print(task.getName(), task.getDueDate(), String.valueOf(work.get(task)));
+        for (Task task : planner.getTasks()) print(task.getName(), task.getDueDate(), formatTime(work.get(task)));
         separator();
     }
 
@@ -178,9 +178,8 @@ public class Run {
         for (int i = 0; i < workForWeek.size(); i++) {
             Map<Task, Double> work = workForWeek.get(i);
             print(AdaptivePlanner.getDayOfWeek(i).toString() + "'s work:");
-            print("Task Name", "Due Date", "Hours to work");
-            for (Task task : planner.getTasks())
-                print(task.getName(), task.getDueDate(), String.valueOf(work.get(task)));
+            print("Task Name", "Due Date", "Time to work");
+            for (Task task : planner.getTasks()) print(task.getName(), task.getDueDate(), formatTime(work.get(task)));
             separator();
         }
     }
@@ -200,5 +199,14 @@ public class Run {
 
     private static void separator(int i) {
         for (int ignored : new int[i]) print("=======================================");
+    }
+
+    private static String formatTime(double totalHours) {
+        int hours = (int) Math.floor(totalHours);
+        int minutes = (int) Math.round((totalHours - hours)*60);
+        String minString = ":" + minutes;
+        if (minutes == 0) minString += "0";
+        if (minutes < 10) minString += "0";
+        return hours+minString;
     }
 }

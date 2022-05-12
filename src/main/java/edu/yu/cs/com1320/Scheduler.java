@@ -23,9 +23,8 @@ public class Scheduler {
             }
         }
 
-        // List elements represent each day, where the Map contains each task for that day and
+        // Elements of the List represent each day, where each Map contains each task for that day and
         // how many hours it requires that day
-
         List<Map<Task, Double>> daysOfProductivity = new ArrayList<>();
 
         for (int i = 0; i < largestRemainingDays; i++) daysOfProductivity.add(new HashMap<>());
@@ -40,28 +39,23 @@ public class Scheduler {
             }
         }
         //figuring out productivity over time for
-        for(Task x : tasks) {
-            if(x.getTaskType() == TaskType.TEST){
+        for(Task task : tasks) {
+            if(task.getTaskType() == TaskType.TEST){
                 int summation = 0;
-                for(int i = 0; i < x.getRemainingDays(); i++){
-                    summation += freeWeeklyHours.get(getDayOfWeek(i))*Math.log10(i+x.getPreviousDays()+1);
+                for(int i = 0; i < task.getRemainingDays(); i++){
+                    summation += freeWeeklyHours.get(getDayOfWeek(i))*Math.log10(i+task.getPreviousDays()+1);
                 }
-                double scaleFactor = x.getWorkHours() / summation;
-                for(int j = 0; j < x.getRemainingDays(); j++){
-                    daysOfProductivity.get(j).put(x, scaleFactor*Math.log10(j+1)*freeWeeklyHours.get(getDayOfWeek(j)));
+                double scaleFactor = task.getWorkHours() / summation;
+                for(int j = 0; j < task.getRemainingDays(); j++){
+                    daysOfProductivity.get(j).put(task, scaleFactor*Math.log10(j+1)*freeWeeklyHours.get(getDayOfWeek(j)));
+                }
+            } else if (task.getTaskType() == TaskType.PROJECT){
+                for (int i = 0; i < task.getRemainingDays(); i++){
+                    double perDay = freeWeeklyHours.get(getDayOfWeek(i))*(task.getWorkHours()/freeHoursTillDate(task));
+                    daysOfProductivity.get(i).put(task, perDay);
                 }
             }
         }
-//        for(Task x : tasks) {
-//            if(x.getTaskType() == TaskType.TEST){
-//                double stretchFactor = /*freeHoursTillDate(x)*/x.getWorkHoursLeft() / (((x.getRemainingDays()+x.getPreviousDays()+1)
-//                        *Math.log10(x.getRemainingDays()+x.getPreviousDays()+1)-x.getRemainingDays())
-//                        -((x.getPreviousDays()+1)*Math.log10(x.getPreviousDays()+1)));
-//                for(int j = 0; j < largestRemainingDays; j++){
-//                    daysOfProductivity.get(j).put(x, stretchFactor*Math.log10(j+(x.getPreviousDays()+j)+1));
-//                }
-//            }
-//        }
         return daysOfProductivity;
     }
 
@@ -76,9 +70,5 @@ public class Scheduler {
     private static DayOfWeek getDayOfWeek(int daysFromNow) {
         if (daysFromNow == 0) return LocalDate.now().getDayOfWeek();
         return LocalDate.now().plusDays(daysFromNow).getDayOfWeek();
-    }
-
-    private static DayOfWeek getDayOfWeek() {
-        return getDayOfWeek(0);
     }
 }
