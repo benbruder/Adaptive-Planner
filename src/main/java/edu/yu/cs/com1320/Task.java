@@ -1,69 +1,80 @@
 package edu.yu.cs.com1320;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 
 public class Task {
-//    Constructor: dueDate, name, description, workHoursExpected, TaskType
-//    Getters: getTimeLeft, getDueDate, getName, getDesc, getTaskType
-//    Setters: setDesc, setTimeLeft (if user needs more or less time), completedTime (automatic subtraction after successful day)
-    private final Date dueDate;
+
     private final String name;
+    private final LocalDate dueDate;
+    private final LocalDate startDate;
+    private final TaskType taskType;
     private String description;
-    private int totalHours;
-    private int hoursCompleted;
-    private TaskType taskType;
+    private double totalHours;
+    private double hoursCompleted;
 
-
-    public Task(Date dueDate, String name, String description, int workHours, TaskType taskType) {
-        if (dueDate == null) throw new IllegalArgumentException("Due date must not be null");
+    protected Task(int year, int month, int day, String name, String description, float workHours, TaskType taskType) {
         if (name == null) throw new IllegalArgumentException("Name must not be null");
         if (workHours < 1) throw new IllegalArgumentException("Must enter at least one hour");
         if (taskType == null) throw new IllegalArgumentException("Task type must not be null");
-        this.dueDate = dueDate;
+        this.taskType = taskType;
+        this.dueDate = LocalDate.of(year, month, day);
+        this.startDate = LocalDate.now();
         this.name = name;
         this.description = description == null ? "" : description;
         this.totalHours = workHours;
         this.hoursCompleted = workHours;
     }
 
-    public int getTimeLeft(){
+    protected double getWorkHoursLeft(){
         return totalHours - hoursCompleted;
     }
 
-    public String getName() {
+    protected String getName() {
         return name;
     }
 
-    public Date getDueDate() {
-        return dueDate;
-    }
-
-    public String getDescription() {
+    protected String getDescription() {
         return description;
     }
 
-    public int getWorkHours() {
+    protected double getHoursCompleted(){ return hoursCompleted;}
+
+    protected double getWorkHours() {
         return totalHours;
     }
 
-    public TaskType getTaskType() {
+    protected TaskType getTaskType() {
         return taskType;
     }
 
-    public void setTotalHours(int totalHours) {
+    protected void setTotalHours(float totalHours) {
         this.totalHours = totalHours;
     }
 
-    public void addWorkPercentage(int percentage) {
-        this.totalHours = (1+(percentage/100))*totalHours;
+    protected void addWorkPercentage(int percentage) {
+        this.totalHours = (1+(percentage/100f))*totalHours;
     }
 
-    public void setDescription(String description) {
+    protected void setDescription(String description) {
         this.description = description;
     }
 
-    protected void addHoursCompleted(int hoursCompleted) {
+    protected void addHoursCompleted(double hoursCompleted) {
         this.hoursCompleted += hoursCompleted;
+    }
+
+    protected int getRemainingDays() {
+        return (int) ChronoUnit.DAYS.between(LocalDate.now(), dueDate);
+    }
+
+    protected int getPreviousDays() {
+        return (int) ChronoUnit.DAYS.between(startDate, LocalDate.now());
+    }
+
+    protected String getDueDate() {
+        return dueDate.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
     }
 }
