@@ -29,15 +29,6 @@ public class Scheduler {
 
         for (int i = 0; i < largestRemainingDays; i++) daysOfProductivity.add(new HashMap<>());
 
-        for(Task task : tasks) {
-            if(task.getTaskType() == TaskType.PROJECT){
-                for(int i = 0; i < task.getRemainingDays(); i++){
-                    daysOfProductivity.get(i).put(task, (double)freeWeeklyHours.get(getDayOfWeek(i))*task.getWorkHoursLeft()/freeHoursTillDate(task));
-                    //daysOfProductivity.get(i).put(task, task.getTimeLeft()/freeHoursTillDate(task));
-                }
-                //gets productivity rate needed for projects tomorrow
-            }
-        }
         //figuring out productivity over time for
         for(Task task : tasks) {
             if(task.getTaskType() == TaskType.TEST){
