@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06319dc3-a016-443a-90fb-259b02c1ae23" name="Changes" comment="Completed rough draft for planner">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/AdaptivePlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/AdaptivePlanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Run.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Scheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Scheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Task.java" afterDir="false" />
     </list>
-    <list id="8cdc38f9-1268-48d7-9855-02b50d79fc5f" name="Changes by aaronmeoded" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Scheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Scheduler.java" afterDir="false" />
-    </list>
+    <list id="8cdc38f9-1268-48d7-9855-02b50d79fc5f" name="Changes by aaronmeoded" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,21 +30,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Scheduler.java">
-      <ranges>
-        <range start1="25" end1="26" start2="25" end2="26" changelist="06319dc3-a016-443a-90fb-259b02c1ae23" />
-        <range start1="27" end1="28" start2="27" end2="27" changelist="06319dc3-a016-443a-90fb-259b02c1ae23" />
-        <range start1="32" end1="41" start2="31" end2="31" changelist="8cdc38f9-1268-48d7-9855-02b50d79fc5f" />
-        <range start1="42" end1="44" start2="32" end2="34" changelist="06319dc3-a016-443a-90fb-259b02c1ae23" />
-        <range start1="45" end1="47" start2="35" end2="37" changelist="06319dc3-a016-443a-90fb-259b02c1ae23" />
-        <range start1="48" end1="51" start2="38" end2="41" changelist="06319dc3-a016-443a-90fb-259b02c1ae23" />
-        <range start1="52" end1="52" start2="42" end2="47" changelist="06319dc3-a016-443a-90fb-259b02c1ae23" />
-        <range start1="54" end1="64" start2="49" end2="49" changelist="06319dc3-a016-443a-90fb-259b02c1ae23" />
-        <range start1="79" end1="83" start2="64" end2="64" changelist="06319dc3-a016-443a-90fb-259b02c1ae23" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -55,19 +39,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/Ben/OneDrive - Yeshiva University/`Spring 2022/Data Structures/AdaptivePlanner",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CodeWithMe"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -78,8 +58,10 @@
   </component>
   <component name="RunManager">
     <configuration name="Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="edu.yu.cs.com1320.Run" />
-      <module name="AdaptivePlanner" />
+      <module name="Adaptive-Planner" />
       <option name="PROGRAM_PARAMETERS" value="3 3 3 3 4 1 8" />
       <extension name="coverage">
         <pattern>
@@ -91,8 +73,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="edu.yu.cs.com1320.Run" />
+      <module name="Adaptive-Planner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.edu.yu.cs.com1320.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Run" />
         <item itemvalue="Application.Run" />
       </list>
     </recent_temporary>
@@ -144,17 +142,6 @@
     <MESSAGE value="Initial commit&#10; - Completed Task.java&#10; - Started work on other classes" />
     <MESSAGE value="Completed rough draft for planner" />
     <option name="LAST_COMMIT_MESSAGE" value="Completed rough draft for planner" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Run.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

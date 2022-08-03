@@ -1,5 +1,7 @@
 package edu.yu.cs.com1320;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.ConcurrentModificationException;
 import java.util.List;
 import java.util.Map;
@@ -134,8 +136,8 @@ public class Run {
             return;
         }
         print("Task list:");
-        print("Name", "Desc", "Due Date");
-        for (Task task : planner.getTasks()) print(task.getName(), task.getDescription(), task.getDueDate());
+        print("Name", "Desc", "Due Date", "Hours Completed", "Total Hours");
+        for (Task task : planner.getTasks()) print(task.getName(), task.getDescription(), task.getDueDate(), Double.toString(task.getHoursCompleted()), Double.toString(task.getWorkHours()));
     }
 
     private static void today() {
@@ -175,13 +177,26 @@ public class Run {
     }
 
     private static void iterateThru(List<Map<Task, Double>> workForWeek) {
+        double shouldAddUpToTotHrs = 0;
         for (int i = 0; i < workForWeek.size(); i++) {
             Map<Task, Double> work = workForWeek.get(i);
-            print(AdaptivePlanner.getDayOfWeek(i).toString() + "'s work:");
+            print(LocalDate.now().plusDays(i).toString()+" / "+AdaptivePlanner.getDayOfWeek(i).toString() + "'s work:");
             print("Task Name", "Due Date", "Time to work");
-            for (Task task : planner.getTasks()) print(task.getName(), task.getDueDate(), formatTime(work.get(task)));
+            double totalDaysWork = 0;
+            for (Task task : planner.getTasks()) {
+                if(work.get(task) != null) {
+                    totalDaysWork += work.get(task);
+                    print(task.getName(), task.getDueDate(), formatTime(work.get(task)));
+                }
+            }
+            shouldAddUpToTotHrs += totalDaysWork;
+            print("---------------------------------------");
+            //print("testing total free hours: "+planner.getFreeWeeklyHours().get(AdaptivePlanner.getDayOfWeek(i)));
+            print("% productivity this day: "+(totalDaysWork/planner.getFreeWeeklyHours().get(AdaptivePlanner.getDayOfWeek(i))));
+            print("Total Work this day: "+formatTime(totalDaysWork));
             separator();
         }
+        print("Total added work allocated: "+Double.toString(shouldAddUpToTotHrs));
     }
 
     private static String input() {
@@ -204,9 +219,9 @@ public class Run {
     private static String formatTime(double totalHours) {
         int hours = (int) Math.floor(totalHours);
         int minutes = (int) Math.round((totalHours - hours)*60);
-        String minString = ":" + minutes;
-        if (minutes == 0) minString += "0";
-        if (minutes < 10) minString += "0";
-        return hours+minString;
+        String minString = Integer.toString(minutes);
+        //if (minutes == 0) minString += "0";
+        if (minutes < 10) minString = "0"+minString;
+        return hours+":"+minString;
     }
 }

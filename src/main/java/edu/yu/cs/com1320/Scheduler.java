@@ -29,17 +29,19 @@ public class Scheduler {
 
         for (int i = 0; i < largestRemainingDays; i++) daysOfProductivity.add(new HashMap<>());
 
-        //figuring out productivity over time for
+        //figuring out productivity over time for all tasks
         for(Task task : tasks) {
+            //hours to allocate for tests
             if(task.getTaskType() == TaskType.TEST){
-                int summation = 0;
+                double summation = 0;
                 for(int i = 0; i < task.getRemainingDays(); i++){
-                    summation += freeWeeklyHours.get(getDayOfWeek(i))*Math.log10(i+task.getPreviousDays()+1);
+                    summation += freeWeeklyHours.get(getDayOfWeek(i))*Math.log10(i+task.getPreviousDays()+2);
                 }
                 double scaleFactor = task.getWorkHours() / summation;
                 for(int j = 0; j < task.getRemainingDays(); j++){
-                    daysOfProductivity.get(j).put(task, scaleFactor*Math.log10(j+1)*freeWeeklyHours.get(getDayOfWeek(j)));
+                    daysOfProductivity.get(j).put(task, scaleFactor*Math.log10(j+2)*freeWeeklyHours.get(getDayOfWeek(j)));
                 }
+            //hours to allocate for projects
             } else if (task.getTaskType() == TaskType.PROJECT){
                 for (int i = 0; i < task.getRemainingDays(); i++){
                     double perDay = freeWeeklyHours.get(getDayOfWeek(i))*(task.getWorkHours()/freeHoursTillDate(task));

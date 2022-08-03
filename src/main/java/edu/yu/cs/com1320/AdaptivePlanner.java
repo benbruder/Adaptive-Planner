@@ -88,6 +88,8 @@ public class AdaptivePlanner {
         return productivityByDay;
     }
 
+    public Map<DayOfWeek, Integer> getFreeWeeklyHours(){return freeWeeklyHours;}
+
     public List<Map<Task, Double>> getTotalWorkSchedule(){
         return schedule;
     }

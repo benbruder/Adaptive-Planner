@@ -25,7 +25,7 @@ public class Task {
         this.name = name;
         this.description = description == null ? "" : description;
         this.totalHours = workHours;
-        this.hoursCompleted = workHours;
+        this.hoursCompleted = 0;
     }
 
     protected double getWorkHoursLeft(){
