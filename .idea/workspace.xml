@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06319dc3-a016-443a-90fb-259b02c1ae23" name="Changes" comment="Completed rough draft for planner">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/AdaptivePlanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/AdaptivePlanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Run.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Scheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Scheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/yu/cs/com1320/Task.java" afterDir="false" />
-    </list>
+    <list default="true" id="06319dc3-a016-443a-90fb-259b02c1ae23" name="Changes" comment="Completed rough draft for planner" />
     <list id="8cdc38f9-1268-48d7-9855-02b50d79fc5f" name="Changes by aaronmeoded" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +39,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
